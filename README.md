@@ -28,10 +28,10 @@ NFS server on raspberry pi k3s cluster
 - Now make a filesystem on the newly created partition by running the following command `sudo mkfs -t ext4 /dev/sda1`
 
 ## Step 2.) - Mount volume for NFS Server
-- create directory to mount drive to `sudo mkdir /NFS-vol`
+- create directory to mount drive to `sudo mkdir /nfs-vol`
 - To make mount perisistent, edit /etc/fstab file with the following command `sudo vim /etc/fstab/` and add the following to the bottom of the existing mounts. `/dev/sda1 /NFS-vol ext4 defaults 0 2`
 - mount the drive `sudo mount -a`
-- create a directory in the new mount for our test nginx pod that will us later, `sudo mkdir /NFS-vol/nginx-vol`
+- create a directory in the new mount for our test nginx pod that will us later, `sudo mkdir /nfs-vol/nginx-vol`
 
 ## Step 3.) - Label Master node
 - label master node so the NFS Server container will only run on the master node where the external drive is, `kubectl label nodes $(hostname) disk=disk1`
