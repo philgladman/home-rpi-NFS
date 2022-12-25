@@ -38,7 +38,7 @@ NFS server on raspberry pi k3s cluster
 
 ## Step 4.) - Install NFS Driver & NFS Server
 - Install the NFS Driver with `curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/v4.1.0/deploy/install-driver.sh | bash -s v4.1.0 --`
-- if you created a different name for your NFS Volume, us this command to change the name from `/NFS-Vol` to your custom name, `sed -i "s|/nfs-vol|<your-custom-name>|g" nfs-driver/kube-nfs-server.yaml`
+- if you created a different name for your NFS Volume, use this command to change the name from `/nfs-vol` to your custom name, `sed -i "s|/nfs-vol|<your-custom-name>|g" nfs-driver/kube-nfs-server.yaml`
 - Create the nfs namespace and the nfs-server `kubectl apply -k nfs-driver/.`
 
 ## Step 5.) - Test NFS Server
